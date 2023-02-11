@@ -2,11 +2,11 @@
 typedef Users = List<User>;
 
 class User {
-  String name;
-  String email;
-
   User({
     required this.name,
-    required this.email
+    required this.email,
   });
+
+  String name;
+  String email;
 }

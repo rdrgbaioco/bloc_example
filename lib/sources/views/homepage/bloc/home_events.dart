@@ -6,27 +6,30 @@ abstract class HomeEvent {
 
 class InitApplication extends HomeEvent {}
 
-class AddUserToList extends HomeEvent {
-  final String name;
-  final String email;
-  const AddUserToList({
+class AddUser extends HomeEvent {
+  const AddUser({
     required this.name,
     required this.email,
   });
+
+  final String name;
+  final String email;
 }
 
-class RemoveUserFromList extends HomeEvent {
-  final int index;
-  const RemoveUserFromList({
+class RemoveUser extends HomeEvent {
+  const RemoveUser({
     required this.index,
   });
+
+  final int index;
 }
 
 class ClearUserList extends HomeEvent {}
 
 class ChangeAppTheme extends HomeEvent {
-  final ThemeMode themeMode;
   const ChangeAppTheme({
     required this.themeMode,
   });
+
+  final ThemeMode themeMode;
 }

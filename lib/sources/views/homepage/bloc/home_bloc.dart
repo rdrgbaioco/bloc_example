@@ -5,9 +5,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     on<ChangeAppTheme>(_onChangeAppTheme);
 
-    on<AddUserToList>(_onAddUserToList, transformer: droppable());
+    on<AddUser>(_onAddUser, transformer: droppable());
 
-    on<RemoveUserFromList>(_onRemoveUserFromList, transformer: droppable());
+    on<RemoveUser>(_onRemoveUser, transformer: droppable());
 
     on<ClearUserList>(_onClearUserList);
   }
@@ -16,7 +16,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(state.copyWith(themeMode: event.themeMode));
   }
 
-  void _onAddUserToList(AddUserToList event, Emitter<HomeState> emit) {
+  void _onAddUser(AddUser event, Emitter<HomeState> emit) {
     final user = User(
       name: event.name,
       email: event.email,
@@ -24,14 +24,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(state.copyWith(users: [...state.users, user]));
   }
 
-  void _onRemoveUserFromList(RemoveUserFromList event, Emitter<HomeState> emit) {
-    final users = state.users;
-    users.removeAt(event.index);
-    emit(state.copyWith(users: users));
+  void _onRemoveUser(RemoveUser event, Emitter<HomeState> emit) {
+    emit(state.copyWith(users: state.users..removeAt(event.index)));
   }
 
   void _onClearUserList(ClearUserList event, Emitter<HomeState> emit) {
     emit(state.copyWith(users: []));
   }
-
 }

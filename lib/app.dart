@@ -22,26 +22,25 @@ class BlocApp extends StatelessWidget {
             listTileTheme: ListTileThemeData(
               tileColor: Colors.grey[800],
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8),
               ),
             ),
           ),
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(
-              brightness: Brightness.light,
               seedColor: Colors.blueAccent,
             ),
             listTileTheme: ListTileThemeData(
               tileColor: Colors.grey[300],
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8),
               ),
             ),
           ),
           home: const HomePage(),
         );
-      }
+      },
     );
   }
 }

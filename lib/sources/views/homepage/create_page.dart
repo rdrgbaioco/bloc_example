@@ -1,7 +1,7 @@
 import 'package:bloc_example/library.dart';
 
 class AddUserPage extends StatefulWidget {
-  const AddUserPage({Key? key}) : super(key: key);
+  const AddUserPage({super.key});
 
   @override
   State<AddUserPage> createState() => _AddUserPageState();
@@ -24,32 +24,32 @@ class _AddUserPageState extends State<AddUserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Create User"),
+        title: const Text('Create User'),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 80.0,
-            vertical: 2.0,
+            horizontal: 80,
+            vertical: 2,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Add new user to list",
+                'Add new user to list',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 40),
               TextField(
                 decoration: const InputDecoration(
-                  hintText: "Enter your name",
+                  hintText: 'Enter your name',
                 ),
                 controller: _nameController,
               ),
               const SizedBox(height: 40),
               TextField(
                 decoration: const InputDecoration(
-                  hintText: "And your email",
+                  hintText: 'And your email',
                 ),
                 controller: _emailController,
               ),
@@ -60,7 +60,7 @@ class _AddUserPageState extends State<AddUserPage> {
                 ),
                 onPressed: () {
                   context.read<HomeBloc>().add(
-                    AddUserToList(
+                    AddUser(
                       name: _nameController.text,
                       email: _emailController.text,
                     ),
