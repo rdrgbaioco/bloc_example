@@ -7,7 +7,7 @@ void main() {
 
   group('Basic Test a Home BloC', () {
     blocTest<HomeBloc, HomeState>(
-      'Test emits 3 new user',
+      'Test emits a new user',
       build: HomeBloc.new,
       act: (bloc) => bloc.add(
         const AddUser(email: 'test0@test', name: 'test0'),
